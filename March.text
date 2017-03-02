@@ -1,1 +1,18 @@
+Group members:
+Renhao Xue(C)
+Zizheng Fang
+Yinuo Jiang
+Kaiqi He
+Xinyi Liu
+Frank X. Blackburn( i.e. Yimo Xu, offical name, a.k.a axmmisaka, Fubuki, MisakaMisaka)
+
+The wallaby robot is assembled under the help of instruction a week ago. This file will update and will not record time in lines because github can automaticlly record the modifying time.
+
+Some branches will be built -- journal, wallaby and create.
+
+A testing software is finished by axmmisaka, which can automaticlly set motor status by clicking button C, A and B (stop, forwaerd and reverse). The construction of robot's underpan is complete, with 2 motors, a universal wheel and a grey level sensor(i.e. tophat) and wallaby mounting on it. But it failed to climb the ramp because the provided underpan and tophat will stuck onto the ramp, and the robot cannot provide itself enough supportive force and thus friction force even after we put some metal to simulate the later construction of mechanic arm on it. The tophat is repositioned and removed but problem still occors.
+
+A program using camera is written by axmmisaka, which can automaticlly detect the nearest color block, and adjust the robot to face it in a certain position. camera.c is in the master branch.
+
+======time- Start of the file======
 Disassembled the current wallaby robot. The robot build under the instruction cannot climb the ramp successfully, because the wheels cannot get enough support force.
