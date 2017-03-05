@@ -1,9 +1,9 @@
 Group members:
-Renhao Xue(C)
+Renhao Xue(C)(Moriatia)
 Zizheng Fang
 Yinuo Jiang
 Kaiqi He
-Xinyi Liu
+Xinyi Liu(Charlie5381)
 Frank X. Blackburn( i.e. Yimo Xu, offical name, a.k.a axmmisaka, Fubuki, MisakaMisaka)
 
 The wallaby robot is assembled under the help of instruction a week ago. This file will update and will not record time in lines because github can automaticlly record the modifying time.
@@ -17,3 +17,8 @@ A program using camera is written by axmmisaka, which can automaticlly detect th
 ======time- Start of the file======
 Disassembled the current wallaby robot. The robot build under the instruction cannot climb the ramp successfully, because the wheels cannot get enough support force.
 built upper uilding of robot
+
+Yesterday was the opening day for some middle schools(not including mine), and thus we can access the lab when we don't have classes.
+Two motors are malfuctioned. They can only roll very slow when rolling reversely. The other 3 motors are still good, and the replacement work is done by me and Charlie5381.
+A machanical arm that could catch the water tower is built by He and Charlie5381, using only Lego parts. Though it is un stable, it is tested manually and successfully and only catches the water tower. No further step so far.
+The create is tested, using the program create_test.c in master branch. Surprisingly however, get_create_play_button() cannot be used. I annotated line 16, and then line 21-28, which finally made it work - going straight very fast.
