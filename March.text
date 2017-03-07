@@ -22,3 +22,9 @@ Yesterday was the opening day for some middle schools(not including mine), and t
 Two motors are malfuctioned. They can only roll very slow when rolling reversely. The other 3 motors are still good, and the replacement work is done by me and Charlie5381.
 A machanical arm that could catch the water tower is built by He and Charlie5381, using only Lego parts. Though it is un stable, it is tested manually and successfully and only catches the water tower. No further step so far.
 The create is tested, using the program create_test.c in master branch. Surprisingly however, get_create_play_button() cannot be used. I annotated line 16, and then line 21-28, which finally made it work - going straight very fast.
+
+3.7
+下午，两位来自海大的研究生前来指导，我们和他们讨论了大机器人和小机器人的策略，最终确定了一个：
+小车：去坡底用机械臂抓起绿色的小球球，然后上坡途中捡起路上的小球，接着放入上层种植区，并把上层小球刮下来；
+大车：初步设想用机构将草垛夹起来，然后将草垛摞在谷仓中。
+我们把小车以前的结构拆解了，打算换用履带。
