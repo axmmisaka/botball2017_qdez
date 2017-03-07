@@ -28,3 +28,4 @@ The create is tested, using the program create_test.c in master branch. Surprisi
 小车：去坡底用机械臂抓起绿色的小球球，然后上坡途中捡起路上的小球，接着放入上层种植区，并把上层小球刮下来；
 大车：初步设想用机构将草垛夹起来，然后将草垛摞在谷仓中。
 我们把小车以前的结构拆解了，打算换用履带。
+The belt attempt failed. The robot is disassembled again.
