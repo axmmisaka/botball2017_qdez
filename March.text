@@ -29,3 +29,5 @@ The create is tested, using the program create_test.c in master branch. Surprisi
 大车：初步设想用机构将草垛夹起来，然后将草垛摞在谷仓中。
 我们把小车以前的结构拆解了，打算换用履带。
 The belt attempt failed. The robot is disassembled again.
+3.10
+xym和lxy把小车的基本结构搭建了出来，但是上坡时会翻车，于是我们尝试着加了一个机械臂，但是还是会翻车，决定下周再和其他人商量一下
