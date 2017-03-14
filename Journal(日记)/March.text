@@ -31,3 +31,10 @@ The create is tested, using the program create_test.c in master branch. Surprisi
 The belt attempt failed. The robot is disassembled again.
 3.10
 xym和lxy把小车的基本结构搭建了出来，但是上坡时会翻车，于是我们尝试着加了一个机械臂，但是还是会翻车，决定下周再和其他人商量一下
+
+
+According to the guider, we lowered the universal whell, the wallaby holder(infrastrature hold on the underpan) and wheels(used the pair with smaller radius).
+We also teared the mechanical arm because it is unstable.(see picture.
+A mechanical hand is built using legos and one servo.(see picture.
+And it finally can climb the ramp without turning over! But two fu*king motherfucking bloody hell motors malfunctioned(cannot preform full speed when reversing), the feedback told so too. One servo has worn thread.
+The create can now sometimes catch hay and cow into the desinated area. I dont know about that though. Charlie did the programming job and hkq assembled.
