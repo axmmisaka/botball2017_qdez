@@ -1,6 +1,7 @@
 //PID Algorithm is an algorithm that could make the robot follow the line without huge swing.
 //This program can let the wallaby follow the black line and climb the ramp
 //Finished by Charlie5381
+//Variables names and some details are changed by axmmisaka
 
 #include <kipr/botball.h>
 const int MotorPower=50;
