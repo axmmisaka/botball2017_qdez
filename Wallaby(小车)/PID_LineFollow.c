@@ -7,9 +7,9 @@
 const int MotorPower=50;
 int MotorPowerDifference=0;
 int MotorPowerAlternateRatio=0;
-int offset=(245+3700)/2;//offset = Tophat detected white + black /2
+int offset=(2100+3900)/2;//offset = Tophat detected white + black /2
 float time;
-float AdjustmentRatio=0.06;//AdjustmentRatio = (MotorMax-MotorMin)/(Tophat detected black - white)
+float AdjustmentRatio=0.05/*(100-0)/(3900-2100)*/;//AdjustmentRatio = (MotorMax-MotorMin)/(Tophat detected black - white)
 int CurrentValue;
 void LineFollow()
 {
