@@ -5,7 +5,7 @@ int error=0;
 int offset=(3900+2100)/2;
 float t,kp=5.0/90.0;//(max-min)/(max-min)
 int dh;
-void goline()//Ѱ�� 
+void goline()//寻线 
 {
 	error=dh-offset;
   	turn=kp*error;
@@ -19,7 +19,7 @@ void chushihua()
 	set_servo_position(0,1100);
 	set_servo_position(1,1200);
 }
-void shangpo()//���³��� 
+void shangpo()//上坡程序 
 {
 	t=seconds()+3;
   	while(seconds()<t)
@@ -38,17 +38,17 @@ void shangpo()//���³���
 } 
 void shouqiu()
 {
-	set_servo_position(0,500);//��������ʱץ�ֵ�λ�ã���ʱ��С���������� 
+	set_servo_position(0,500);//更改上坡时抓手的位置，这时候小车还在坡上 
 	t+=1;
-  	while (seconds()<t)//��ʽ�ϵ����� 
+  	while (seconds()<t)//正式上到坡上 
     {
     	motor(0,sp);
       	motor(1,sp);
     }
 //   set_servo_position(0,);
-//	set_servo_position(1,);//�ٴθ���
+//	set_servo_position(1,);//再次更改
 	t+=;
-  	while (seconds()<t)//ǰ����ͷ 
+  	while (seconds()<t)//前进到头 
     {
     	dh=analog(0);
       	goline();
@@ -56,7 +56,7 @@ void shouqiu()
     motor(0,0);
     t+=3;
     int i=1200;
-    while (seconds()<t)//һ�ߺ���һ�߼��� 
+    while (seconds()<t)//一边后退一边夹球 
     {
     	motor(0,-10);
 		motor(1,-10);
@@ -70,16 +70,16 @@ void shouqiu()
  	motor(0,0);
  	motor(1,0);
 	i=500;
-	while (i<2000)//����
+	while (i<2000)//举球
 	{
 		i+=10;
 		set_servo_position(0,i);
 		msleep(10);
 	}
-	motor(0,sp);//ǰ�� 
+	motor(0,sp);//前进 
 	motor(1,sp);
 	msleep();
-	set_servo_position(0,1800);//�ٵ��� �½� ���� 
+	set_servo_position(0,1800);//举到顶 下降 放球 
 	set_servo_position(1,1000);
 	
 }
