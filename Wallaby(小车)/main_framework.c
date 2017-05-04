@@ -14,8 +14,8 @@ void PID_lineFollow()
 {
   motorPowerAlternateRatio=currentValue-offset;
   motorPowerDifference=AdjustmentRatio*motorPowerAlternateRatio;
-  printf("%f %f %d\n",motorPowerDifference,AdjustmentRatio,motorPowerAlternateRatio);
-  printf("%f %f\n",initialMotorPower-motorPowerDifference,initialMotorPower+motorPowerDifference);
+  printf("(DEBUG)%f %f %d\n",motorPowerDifference,AdjustmentRatio,motorPowerAlternateRatio);
+  printf("(DEBUG)%f %f\n",initialMotorPower-motorPowerDifference,initialMotorPower+motorPowerDifference);
   motor(0,initialMotorPower+motorPowerDifference);
   motor(1,initialMotorPower-motorPowerDifference);
 }
@@ -29,6 +29,7 @@ void initialization()
 void ascent()
 {
   elapsedTime=seconds()+2;
+  printf("(DEBUG)%f  %f  %f",elapsedTime,seconds(),elapsedTime-seconds());
   while(seconds()<elapsedTime)
   {
     motor(0,70);
@@ -36,13 +37,27 @@ void ascent()
   }
   disable_servo(SERVO_LIFT);
   currentValue=analog(0);
-  elapsedTime+=seconds()+30;
+  elapsedTime=seconds()+5.1;
   while (seconds()<elapsedTime)
   {
-    printf("(debug)%d   %f\n",currentValue,elapsedTime-seconds());
+    printf("(debug)%f\n",elapsedTime-seconds());
     currentValue=analog(0);
     PID_lineFollow();
   }
+}
+void moveOntoUpperArea()
+{
+  int servo_pos = 0;
+  enable_servo(SERVO_LIFT);
+  elapsedTime = seconds()+2;
+  while(seconds()<elapsedTime)
+  {
+    set_servo_position(SERVO_LIFT,servo_pos = servo_pos < 400 ? servo_pos + 5:400);
+    motor(0,80);
+    motor(1,80);
+  }
+  disable_servo(SERVO_LIFT);
+  PID_lineFollow();
 }
 void ballCollect()
 {
@@ -93,7 +108,8 @@ int main()
 {
   initialization();
   printf("initialization success...\nBoiling Vodka!\n");
-    ascent();
+  ascent();
+  moveOntoUpperArea();
   //ballCollect();
   return 0;
 }
