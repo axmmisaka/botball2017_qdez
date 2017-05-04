@@ -1,3 +1,16 @@
+/*************************************************************/
+/*Some before-running initializations*/
+/*Connections:Left wheel on Motor 0, with red side towards the screen.*/
+/*Right wheel on Motor 1, with black side towards the screen.*/
+/*The nearer servo, mounted onto the upright post is connected on servo 0*/
+/*The another servo, servo 1 which controls the open and closeof mechanican hand, is connected on servo 2*/
+/*Tophat sensor is mounted on analog 0, light sensor is mounted on analog 1.*/
+/*The back wheel has a distance of 17.5 centimeter from the outer border of the starting area horizontally, 8.5 cm vertically*/
+/*************************************************************/
+
+
+
+
 //Finished by Charlie5381 and axmmisaka
 #define SERVO_LIFT 0
 #define SERVO_CATCH 1
