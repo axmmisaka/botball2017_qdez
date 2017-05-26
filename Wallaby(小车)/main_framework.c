@@ -42,9 +42,7 @@ void PID_lineFollow()
   printf("(DEBUG)%f %f %d\n",motorPowerDifference,AdjustmentRatio,motorPowerAlternateRatio);
   printf("(DEBUG)%f %f\n",initialMotorPower-motorPowerDifference,initialMotorPower+motorPowerDifference);
   motor(0,initialMotorPower+motorPowerDifference);
-    motor(2,initialMotorPower+motorPowerDifference);
   motor(1,initialMotorPower-motorPowerDifference);
-    motor(4,initialMotorPower-motorPowerDifference);
 }
 void initialization()
 {
@@ -58,9 +56,7 @@ void pid()
  	printf("(DEBUG)%f %f %d\n",motorPowerDifference,AdjustmentRatio,motorPowerAlternateRatio);
  	printf("(DEBUG)%f %f\n",70-motorPowerDifference,70+motorPowerDifference);
   motor(0,initialMotorPower+motorPowerDifference);
-    motor(2,initialMotorPower+motorPowerDifference);
   motor(1,initialMotorPower-motorPowerDifference);
-    motor(4,initialMotorPower-motorPowerDifference);
 }
 void ascent()
 {
