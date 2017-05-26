@@ -1,6 +1,4 @@
-## Qingdao No.2 High School Enginnering Technology Botball team <br> BBC-1627 Sinocrawlers
-## China National Qualifier, 2017/5/19-2017/5/20 CST
-## Second Prize, qualified to Botball International Tournament
+# Qingdao No.2 High School Enginnering Technology Botball team <br> BBC-1627 Sinocrawlers <br> China National Qualifier, 2017/5/19-2017/5/20 CST <br> Second Prize, qualified to Botball International Tournament
 
 
 # botball2017_qdez
