@@ -6,3 +6,10 @@ The two robots, create and wallaby as we simply call them, will finish objective
 Yimo Xu(github:axmmisaka) and Renhao Xue(github:moriatia) finished most new programs finished after national qualifier. Yimo Xu focus on programming wallaby and reviewing create's code, and Renhao Xue focus on programming create and reviewing wallaby's code. Xiao Yu and Gonghao Zhang will perform review for all code, make sure there is no leak.
 
 ## Best Practices Checklist
+Before national qualifier, axmmisaka wrote down some coding goals, which you can find in the github repository. 
+- [x]Use a version control system for better cooperation
+- [x]Functions and macros are used to organize and shorten code
+- [x]Code contains comments for explaining functions, arguments, varibles and statements.
+- [x]All names of functions and varibles are following camelCase rule
+- [ ]Code use parameters to combine functions together
+- [x]Code should be formatted and in well indent
