@@ -4,7 +4,6 @@
 Although this is the second year our school participate in International Botball Touranment, 3 of 5 of our team members are participating Botball for the first time. In the national qualifier we do have 5 people who can master programming, but only one of them will come with us to the United States, and he is also the weakest one among those five, Yimo Xu, i.e. axmmisaka. <br> 
 The two robots, create and wallaby as we simply call them, will finish objectives in different areas: create focus on big objects, such as hay stacks and water containers, and wallaby focus on small objects on upper level, mostly poms.  <br> 
 Yimo Xu(github:axmmisaka) and Renhao Xue(github:moriatia) finished most new programs finished after national qualifier. Yimo Xu focus on programming wallaby and reviewing create's code, and Renhao Xue focus on programming create and reviewing wallaby's code. Xiao Yu and Gonghao Zhang will perform review for all code every Saturday, make sure there is no leak. The final review is conducted in 17 Jul 2017.
-~~~wooo~~~
 ## Best Practices Checklist
 Before national qualifier, axmmisaka wrote down some coding goals, which you can find in the github repository. 
 - [x] Use a version control system for better cooperation
@@ -63,7 +62,7 @@ I, axmmisaka, as a ameteur programmer who has made a little improvements on Gith
 - No undefined behaviors. The compiler provided by KIPR is pretty reliable, but it is like every compiler, unable to do anything with undefined behaviours. Thus, for some statements like printf("%d, %d",++n,frontSensorDetect(n,2)); or some woodenheaded statement like msleep(++time+++++++time++);
 - Do as much code reviews as you can. Some howlers are less easy to detect and fatal, such as typing "==" as "=" or assigning a value to a constant.
 
-# Maintainability
+# Maintainability and portability
 As we use git as the version control system, it is very easy to see where the program has changed. Altough we do not commit changes too often because most of the changes are specfic values that need to be measured every time, we commit when major changes took place. Thus, if anything goes wrong, it will be very easy for us to roll back to previous version or use the diff tool to see where these problems may occur.<br>
 ![Commits on Github](https://github.com/axmmisaka/botball2017_qdez/blob/master/Journal(%E6%97%A5%E8%AE%B0)/QQ%E6%88%AA%E5%9B%BE20170605001426.jpg?raw=true)<br>
 Some people's English is not that proficent, and they update github in Chinese.<br>
@@ -71,3 +70,11 @@ Some people's English is not that proficent, and they update github in Chinese.<
 Some codes are initially written by teammates who participate in Olympiad in Informatics(like USACO), they write super-fast, but varibles are named poorly, no comments, and there's even no indentation! If any of us see such situation, we will immediately go ask him(before he forget anything) the meaning of these variable names(most are abbreviations of Chinese Pinyin or simple English words), and change the code to the most readable one. For example, in commit e8e3e49ca3d51b7308c69d09288a25902928bf0b, we changed an nearly unreadable code into a readable one without changing its core algorighm, below is the difference of this commit and previous one using diff tool:
 ![diff](https://github.com/axmmisaka/botball2017_qdez/blob/master/Journal(%E6%97%A5%E8%AE%B0)/QQ%E6%88%AA%E5%9B%BE20170605005138.jpg?raw=true)
 
+As for portability, although we used some KIPR-exclusive functions, but other platforms may have sililar one. The point is, as we mentioned in the previous chapter, all codes follow ISO C-89 standard, which means, no undefined behaviors or non-fatal problems are in the program; and community's common sense, for example, return value 0 have the meaning that the function successfully exited, and value 1 does not. We also deleted all bit operations, because it could be fatal if we transform this program onto a platform that doesn't have the same architecture (e.g. x86 and x64).
+
+# Effectiveness
+The main time robots will elapse is during displacement instead of calculations in the program, but it is still very important to let the program to be effective, because an effective program is also less likely to crash.
+Below are some ways we improve effectiveness:
+- Use less data structures
+- 避免不必要的函数调用,赋值(像strlen)
+- 用无符号整数 计算快
