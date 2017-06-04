@@ -36,3 +36,19 @@ int wallabyMoveToRamp(int direction, int power){
 But soon we found that this style will not cause much effect - most functions will only be used once, so a function's "opposite" one seldom becomes useful. During the qualifier, we decided not to adopt this style.
 
 
+## Reliability
+### Procedures
+Even though all playgrounds are built in the same standard, some details may still be different and thus have an effect on robots. 
+To improve the create's reliability, after every single step, the create will calibrate - drive to the border and align, make sure it has a perfectly heading position. We used front collision sensor and time control to make sure the wallaby will neither miss its destination nor fall off the playground. 
+As for wallaby, we used several sensors since its area has more marks than create's do. Like create, we used both time control and sensor to make sure robots will not misjudge, like this:
+```c
+const float maximumTime = 7.0f;
+const float minimumTime = 12.0f;
+float elapsedTime;
+while(elapsedTime <= maximumTime &&\ // did not stuck or off-position
+(IRSensorValue >= MINIMUN_DISTANCE || elapsedTime >= minimumTime)){ //IR is reliable
+  wallabyGoStraight();
+  IRSensorValue = analog(SENSOR_IR);//update sensor value
+  elapsedTime = seconds();//update time
+}
+```
