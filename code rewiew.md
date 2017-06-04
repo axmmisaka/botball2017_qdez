@@ -13,6 +13,7 @@ Before national qualifier, axmmisaka wrote down some coding goals, which you can
 - [x] All names of functions and varibles are following camelCase rule
 - [ ] Code use parameters to combine functions together
 - [x] Code should be formatted and in well indent
+<br>
 Before the qualfier, were expecting that most functions will have its "opposite" one, for example, if a function can move the robot forward, then the opposite one could make it backward - so to shorten the program, we could have adopted this style: 
 ```c
 #define MOTOR_LEFT 0
@@ -61,3 +62,9 @@ I, axmmisaka, as a ameteur programmer who has made a little improvements on Gith
 - Global varibles may be a must, but we reduced its number to minimum. Too many global variables can make the program less realible because the cohesion will decrease, and it may have a negative effect on other local varibles.
 - No undefined behaviors. The compiler provided by KIPR is pretty reliable, but it is like every compiler, unable to do anything with undefined behaviours. Thus, for some statements like printf("%d, %d",++n,frontSensorDetect(n,2)); or some woodenheaded statement like msleep(++time+++++++time++);
 - Do as much code reviews as you can. Some howlers are less easy to detect and fatal, such as typing "==" as "=" or assigning a value to a constant.
+
+# Maintainability
+As we use git as the version control system, it is very easy to see where the program has changed. Altough we do not commit changes too often because most of the changes are specfic values that need to be measured every time, we commit when major changes took place. Thus, if anything goes wrong, it will be very easy for us to roll back to previous version or use the diff tool to see where these problems may occur.<br>
+![Commits on Github](https://github.com/axmmisaka/botball2017_qdez/blob/master/Journal(%E6%97%A5%E8%AE%B0)/QQ%E6%88%AA%E5%9B%BE20170605001426.jpg?raw=true)<br>
+Some people's English is not that proficent, and they update github in Chinese.<br>
+
