@@ -68,3 +68,4 @@ As we use git as the version control system, it is very easy to see where the pr
 ![Commits on Github](https://github.com/axmmisaka/botball2017_qdez/blob/master/Journal(%E6%97%A5%E8%AE%B0)/QQ%E6%88%AA%E5%9B%BE20170605001426.jpg?raw=true)<br>
 Some people's English is not that proficent, and they update github in Chinese.<br>
 
+Some codes are initially written by teammates who participate in Olympiad in Informatics(like USACO), they write super-fast, but varibles are named poorly, no comments, and there's even no indentation! If any of us see such situation, we will immediately go ask him(before he forget anything) the meaning of these variable names(most are abbreviations of Chinese Pinyin or simple English words), and change the code to the most readable one. For example, in commit e8e3e49ca3d51b7308c69d09288a25902928bf0b, we changed an nearly unreadable code into a readable one without changing its core algorighm.
