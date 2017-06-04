@@ -1,8 +1,8 @@
 # P2 Upload a Code Review Document 
 
 ## Introduction 
-Although this is the second year our school participate in International Botball Touranment, 3 of 5 of our team members are participating Botball for the first time. In the national qualifier we do have 5 people who can master programming, but only one of them will come with us to the United States, and he is also the weakest one among those five, Yimo Xu, i.e. axmmisaka.  
-The two robots, create and wallaby as we simply call them, will finish objectives in different areas: create focus on big objects, such as hay stacks and water containers, and wallaby focus on small objects on upper level, mostly poms.  
+Although this is the second year our school participate in International Botball Touranment, 3 of 5 of our team members are participating Botball for the first time. In the national qualifier we do have 5 people who can master programming, but only one of them will come with us to the United States, and he is also the weakest one among those five, Yimo Xu, i.e. axmmisaka. <br> 
+The two robots, create and wallaby as we simply call them, will finish objectives in different areas: create focus on big objects, such as hay stacks and water containers, and wallaby focus on small objects on upper level, mostly poms.  <br> 
 Yimo Xu(github:axmmisaka) and Renhao Xue(github:moriatia) finished most new programs finished after national qualifier. Yimo Xu focus on programming wallaby and reviewing create's code, and Renhao Xue focus on programming create and reviewing wallaby's code. Xiao Yu and Gonghao Zhang will perform review for all code every Saturday, make sure there is no leak. The final review is conducted in 17 Jul 2017.
 
 ## Best Practices Checklist
@@ -38,8 +38,8 @@ But soon we found that this style will not cause much effect - most functions wi
 
 ## Reliability
 ### Procedures
-Even though all playgrounds are built in the same standard, some details may still be different and thus have an effect on robots. 
-To improve the create's reliability, after every single step, the create will calibrate - drive to the border and align, make sure it has a perfectly heading position. We used front collision sensor and time control to make sure the wallaby will neither miss its destination nor fall off the playground. 
+Even though all playgrounds are built in the same standard, some details may still be different and thus have an effect on robots. <br> 
+To improve the create's reliability, after every single step, the create will calibrate - drive to the border and align, make sure it has a perfectly heading position. We used front collision sensor and time control to make sure the wallaby will neither miss its destination nor fall off the playground. <br> 
 As for wallaby, we used several sensors since its area has more marks than create's do. Like create, we used both time control and sensor to make sure robots will not misjudge, like this:
 ```c
 const float maximumTime = 7.0f;
@@ -52,3 +52,6 @@ while(elapsedTime <= maximumTime &&\ // did not stuck or off-position
   elapsedTime = seconds();//update time
 }
 ```
+Wallaby also used motor position counters to dertermine if slip happens, thus, as we programmed, it may auto-repair itself if needed.<br>
+However, until this review is finished, we still did not meet our expectation on the errors, which is about 2 centimeter and the reality is about 5 centimeter, although it's accurate enough to finish all tasks without having any fatal problem. We will improve the accuracy by doing more tests and using more reliable algorithms to calibrate.
+### The program itself
