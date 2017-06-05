@@ -76,7 +76,8 @@ As for portability, although we used some KIPR-exclusive functions, other platfo
 # Effectiveness
 The main time robots will elapse is during displacement instead of calculations in the program, but it is still very important to let the program to be effective, because an effective program is also less likely to crash.
 Below are some ways we improve effectiveness:
-- Use less data structures
+- Use less data structures 
+
 There used to be an array to save all values that detected from sensors, we thought it would be convenient if we do this:
 
 ```c
@@ -128,6 +129,48 @@ int initialization(unsigned digital[], unsigned analog[]){
 }
 
 ```
+But later, we realized that we don't need to do this - this operation slows down the program beacuse most arrays remain useless, and we can just use the function analog() and digital() instead. Below is how the program is now:
+```c
+//Function initialization()
+//Run this function before everything start.
+//This function includes self-test and start-on-light module.
+//No argument is needed
+int initialization(void){
+    /********motor test********/
+    printf("Motor test...\n");
+    motor(MOTOR_LEFT,10);
+    motor(MOTOR_RIGHT,10);
+    msleep(10);
+    motor(MOTOR_LEFT,-10);
+    motor(MOTOR_RIGHT,-10);
+    msleep(10);
+    ao();
+    printf("Motor test completed...\n");
+    /********motor test********/
 
-- 避免不必要的函数调用,赋值(像strlen)
-- 用无符号整数 计算快
+    /********servo test********/
+    printf("Servo test...\n");
+    enable_servo(SERVO_LIFT);
+    enable_servo(SERVO_CATCH);
+    set_servo_position(SERVO_LIFT,924);
+    set_servo_position(SERVO_CATCH,300);
+    disable_servo(SERVO_LIFT);
+    printf("Motor test completed...\n");
+    /********servo test********/
+
+    /********sensor standby********/
+    printf("Boiling vodka, please wait......\n");
+    while(analog(0) >=375 && digital(2) == 0){//If no strong light and button remain not pressed
+        sensorUpdate(digital,analog);
+    }
+    return EXIT_SUCCESS;
+}
+```
+- Use unsigned interger if possible
+As a feature of CPU, unsigned intergers are usually faster than intergers. If we can make sure a variable will not get negative value, we will use type "unsigned" instead of "int".<br>
+Some functions will only return positive values but its return type may be integer, in this case, we will use compulsory type conversion to solve this problem, like this:
+```c
+unsigned analogCache = 0;
+analogCache = (unsigned)analog(4);//get value, convert type
+```
+~~~- 避免不必要的函数调用,赋值(像strlen)~~~
