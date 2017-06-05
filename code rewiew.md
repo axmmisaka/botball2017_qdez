@@ -60,7 +60,7 @@ I, axmmisaka, as a ameteur programmer who has made a little improvements on Gith
 - Pointers in C Programming Language is powerful, but sometimes they may be fatal, like dangling or wild pointers. Our program do not need complicated data structures, as a result, we used no pointers because they are no longer needed. 
 - Goto statement may be useful, but it makes the program more likely to crash, said Dijkstra. We used goto statement in national qualfier to reduce our workload, but now we successfully converted them into loops and break or continue statemant.
 - Global varibles may be a must, but we reduced its number to minimum. Too many global variables can make the program less realible because the cohesion of the program will decrease, and it may have a negative effect on other local varibles.
-- No undefined behaviors. The compiler provided by KIPR is pretty reliable, but like every compiler, it is unable to do anything with undefined behaviours. Thus, for some statements like 'printf("%d, %d",++n,frontSensorDetect(n,2));' or some woodenheaded statement like 'msleep(++time+++++++time++);' are strictly prohibited in our coding group.
+- No undefined behaviors. The compiler provided by KIPR is pretty reliable, but like every compiler, it is unable to do anything with undefined behaviours. Thus, for some statements like `printf("%d, %d",++n,frontSensorDetect(n,2));` or some woodenheaded statement like `msleep(++time+++++++time++);` are strictly prohibited in our coding group.
 - Do as much code reviews as you can. Some howlers are less easy to detect and fatal, such as typing "==" as "=" or assigning a value to a constant.
 
 # Maintainability and portability
