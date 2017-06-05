@@ -40,7 +40,7 @@ But soon we found that this style will not cause much effect - most functions wi
 ## Reliability
 ### Procedures
 Even though all playgrounds are built in the same standard, some details may still be different and thus have an effect on robots. <br> 
-To improve the create's reliability, after every single step, the create will calibrate - drive to the border and align, make sure it has a perfectly heading position. We used front collision sensor and time control to make sure the wallaby will neither miss its destination nor fall off the playground. <br> 
+To improve create's reliability, after every single step, the create will calibrate itself by driving to the border and align, make sure it has a perfect heading position. We used front collision sensor and time control to make sure the wallaby will neither miss its destination nor fall off the playground. <br> 
 As for wallaby, we used several sensors since its area has more marks than create's do. Like create, we used both time control and sensor to make sure robots will not misjudge, like this:
 ```c
 const float maximumTime = 7.0f;
@@ -57,10 +57,10 @@ Wallaby also used motor position counters to dertermine if slip happens, thus, a
 However, until this review is finished, we still did not meet our expectation on the errors, which is about 2 centimeter and the reality is about 5 centimeter, although it's accurate enough to finish all tasks without having any fatal problem. We will improve the accuracy by doing more tests and using more reliable algorithms to calibrate.
 ### The program itself
 I, axmmisaka, as a ameteur programmer who has made a little improvements on Github for some opensource projects, deeply know how unrealiable these home-make projects are. To improve reliability, the program itself should not crash at first. Below are some points.<br>
-- Pointers in C Programming Language is powerful, but sometimes they may be fatal, like dangling or wild pointers. Our program do not need complicated data structures, as a result, pointer is not needed, and thus we used no pointers. 
-- Goto statement may be useful, but it makes the program more likely to crash, said Dijkstra. We used goto statement in national qualfier to reduce workload, but now we successfully converted them into loops and break or continue statemant.
-- Global varibles may be a must, but we reduced its number to minimum. Too many global variables can make the program less realible because the cohesion will decrease, and it may have a negative effect on other local varibles.
-- No undefined behaviors. The compiler provided by KIPR is pretty reliable, but like every compiler, it is unable to do anything with undefined behaviours. Thus, for some statements like printf("%d, %d",++n,frontSensorDetect(n,2)); or some woodenheaded statement like msleep(++time+++++++time++) are strictly prohibited in our coding group.
+- Pointers in C Programming Language is powerful, but sometimes they may be fatal, like dangling or wild pointers. Our program do not need complicated data structures, as a result, we used no pointers because they are no longer needed. 
+- Goto statement may be useful, but it makes the program more likely to crash, said Dijkstra. We used goto statement in national qualfier to reduce our workload, but now we successfully converted them into loops and break or continue statemant.
+- Global varibles may be a must, but we reduced its number to minimum. Too many global variables can make the program less realible because the cohesion of the program will decrease, and it may have a negative effect on other local varibles.
+- No undefined behaviors. The compiler provided by KIPR is pretty reliable, but like every compiler, it is unable to do anything with undefined behaviours. Thus, for some statements like 'printf("%d, %d",++n,frontSensorDetect(n,2));' or some woodenheaded statement like 'msleep(++time+++++++time++);' are strictly prohibited in our coding group.
 - Do as much code reviews as you can. Some howlers are less easy to detect and fatal, such as typing "==" as "=" or assigning a value to a constant.
 
 # Maintainability and portability
