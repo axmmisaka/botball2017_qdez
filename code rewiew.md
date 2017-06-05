@@ -13,7 +13,7 @@ Before national qualifier, axmmisaka wrote down some coding goals, which you can
 - [ ] Code use parameters to combine functions together
 - [x] Code should be formatted and in well indent
 <br>
-Before the qualfier, were expecting that most functions will have its "opposite" one, for example, if a function can move the robot forward, then the opposite one could make it backward - so to shorten the program, we could have adopted this style: 
+Before the qualifier, were expecting that most functions will have its "opposite" one, for example, if a function can move the robot forward, then the opposite one could make it backward - so to shorten the program, we could have adopted this style: 
 
 ```c
 #define MOTOR_LEFT 0
