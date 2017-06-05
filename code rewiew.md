@@ -14,6 +14,7 @@ Before national qualifier, axmmisaka wrote down some coding goals, which you can
 - [x] Code should be formatted and in well indent
 <br>
 Before the qualfier, were expecting that most functions will have its "opposite" one, for example, if a function can move the robot forward, then the opposite one could make it backward - so to shorten the program, we could have adopted this style: 
+
 ```c
 #define MOTOR_LEFT 0
 #define MOTOR_RIGHT 1
@@ -59,7 +60,7 @@ I, axmmisaka, as a ameteur programmer who has made a little improvements on Gith
 - Pointers in C Programming Language is powerful, but sometimes they may be fatal, like dangling or wild pointers. Our program do not need complicated data structures, as a result, pointer is not needed, and thus we used no pointers. 
 - Goto statement may be useful, but it makes the program more likely to crash, said Dijkstra. We used goto statement in national qualfier to reduce workload, but now we successfully converted them into loops and break or continue statemant.
 - Global varibles may be a must, but we reduced its number to minimum. Too many global variables can make the program less realible because the cohesion will decrease, and it may have a negative effect on other local varibles.
-- No undefined behaviors. The compiler provided by KIPR is pretty reliable, but it is like every compiler, unable to do anything with undefined behaviours. Thus, for some statements like printf("%d, %d",++n,frontSensorDetect(n,2)); or some woodenheaded statement like msleep(++time+++++++time++);
+- No undefined behaviors. The compiler provided by KIPR is pretty reliable, but like every compiler, it is unable to do anything with undefined behaviours. Thus, for some statements like printf("%d, %d",++n,frontSensorDetect(n,2)); or some woodenheaded statement like msleep(++time+++++++time++) are strictly prohibited in our coding group.
 - Do as much code reviews as you can. Some howlers are less easy to detect and fatal, such as typing "==" as "=" or assigning a value to a constant.
 
 # Maintainability and portability
@@ -70,11 +71,63 @@ Some people's English is not that proficent, and they update github in Chinese.<
 Some codes are initially written by teammates who participate in Olympiad in Informatics(like USACO), they write super-fast, but varibles are named poorly, no comments, and there's even no indentation! If any of us see such situation, we will immediately go ask him(before he forget anything) the meaning of these variable names(most are abbreviations of Chinese Pinyin or simple English words), and change the code to the most readable one. For example, in commit e8e3e49ca3d51b7308c69d09288a25902928bf0b, we changed an nearly unreadable code into a readable one without changing its core algorighm, below is the difference of this commit and previous one using diff tool:
 ![diff](https://github.com/axmmisaka/botball2017_qdez/blob/master/Journal(%E6%97%A5%E8%AE%B0)/QQ%E6%88%AA%E5%9B%BE20170605005138.jpg?raw=true)
 
-As for portability, although we used some KIPR-exclusive functions, but other platforms may have sililar one. The point is, as we mentioned in the previous chapter, all codes follow ISO C-89 standard, which means, no undefined behaviors or non-fatal problems are in the program; and community's common sense, for example, return value 0 have the meaning that the function successfully exited, and value 1 does not. We also deleted all bit operations, because it could be fatal if we transform this program onto a platform that doesn't have the same architecture (e.g. x86 and x64).
+As for portability, although we used some KIPR-exclusive functions, other platforms may have sililar one. The point is, as we mentioned in the previous chapter, all codes follow ISO C-89 standard, which means, no undefined behaviors or non-fatal problems are in the program; and community's common sense, for example, return value 0 have the meaning that the function successfully exited, and value 1 does not. We also deleted all bit operations, because it could be fatal if we transform this program onto a platform that doesn't have the same architecture (e.g. x86 and x64).
 
 # Effectiveness
 The main time robots will elapse is during displacement instead of calculations in the program, but it is still very important to let the program to be effective, because an effective program is also less likely to crash.
 Below are some ways we improve effectiveness:
 - Use less data structures
+There used to be an array to save all values that detected from sensors, we thought it would be convenient if we do this:
+
+```c
+//Function sensorUpdate()
+//Run this function to update all sensor values
+int sensorUpdate(unsigned digital[], unsigned analog[]){
+    int number;
+    for(number = 0; number < 6; number++){//loop all 12 sensors
+        digital[number] = digital(number);
+        analog[number] = analog(number);
+    }
+    return EXIT_SUCCESS;
+}
+
+
+//Function initialization()
+//Run this function before everything start.
+//This function includes self-test and start-on-light module.
+//Arguments are array digital and analog
+int initialization(unsigned digital[], unsigned analog[]){
+    /********motor test********/
+    printf("Motor test...\n");
+    motor(MOTOR_LEFT,10);
+    motor(MOTOR_RIGHT,10);
+    msleep(10);
+    motor(MOTOR_LEFT,-10);
+    motor(MOTOR_RIGHT,-10);
+    msleep(10);
+    ao();
+    printf("Motor test completed...\n");
+    /********motor test********/
+
+    /********servo test********/
+    printf("Servo test...\n");
+    enable_servo(SERVO_LIFT);
+    enable_servo(SERVO_CATCH);
+    set_servo_position(SERVO_LIFT,924);
+    set_servo_position(SERVO_CATCH,300);
+    disable_servo(SERVO_LIFT);
+    printf("Motor test completed...\n");
+    /********servo test********/
+
+    /********sensor standby********/
+    printf("Boiling vodka, please wait......\n");
+    while(analog[0] >=375 && digital[2] == 0){//If no strong light and button remain not pressed
+        sensorUpdate(digital,analog);
+    }
+    return EXIT_SUCCESS;
+}
+
+```
+
 - 避免不必要的函数调用,赋值(像strlen)
 - 用无符号整数 计算快
