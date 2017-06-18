@@ -78,7 +78,7 @@ Some codes are initially written by teammates who participate in Olympiad in Inf
 ![diff](https://github.com/axmmisaka/botball2017_qdez/blob/master/Journal(%E6%97%A5%E8%AE%B0)/QQ%E6%88%AA%E5%9B%BE20170605005138.jpg?raw=true)
 
 Nevertheless, problems still occur. Some varibles' name are still ambigious and need to be explained using comments. We will continue to change these name into clear and persice ones. 
-#Portability
+# Portability
 As for portability, although we used some KIPR-exclusive functions, other platforms may have similar one. The point is, as we mentioned in the previous chapter, all codes follow ISO C-89 standard, which means, no undefined behaviors or non-fatal problems are in the program; and community's common sense, for example, return value 0 have the meaning that the function successfully exited, and value 1 does not. We also deleted all bit operations, because it could be fatal if we transform this program onto a platform that doesn't have the same architecture (e.g. x86 and x64).
 
 # Effectiveness
