@@ -11,7 +11,7 @@ Before national qualifier, axmmisaka wrote down some coding goals, which you can
 - [x] Macros are used to organize and shorten code
 - [x] Code includes comments documenting each function's purpose
 - [x] Code includes comments documenting each function's arguments and return values
-- [x] Code includes comments explaining purposes of arguments, variables and statements those cannot be easily identified by their name
+- [x] Code includes comments explaining purposes of variables and statements those cannot be easily identified by their name
 - [x] Variable names in the code are descriptive and convey their use in the program
 - [x] All names of functions and variables are following camelCase rule
 - [x] Code avoids the use of unnamed numericconstants other than 0, 1, or 2
@@ -174,7 +174,8 @@ int initialization(void){
     return EXIT_SUCCESS;
 }
 ```
-- Use unsigned integer if possible
+- Use unsigned integer if possible   
+
 As a feature of CPU, unsigned integers are usually faster than integers. If we can make sure a variable will not get negative value, we will use type "unsigned" instead of "int".<br>
 Some functions will only return positive values but its return type may be integer, in this case, we will use compulsory type conversion to solve this problem, like this:
 ```c
